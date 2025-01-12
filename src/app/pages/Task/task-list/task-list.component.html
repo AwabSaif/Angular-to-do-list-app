@@ -1,0 +1,24 @@
+
+<div class="list_task">
+  <h3>Your Tasks</h3>
+  @for ( task of tasks; track $index) {
+
+  <div
+
+  class="task_item" 
+  [class.completed]="task.completed"
+  >
+    <input
+    type="checkbox"
+    class="task-completed-checkbox"
+    [checked]="task.completed"
+    (change)="toggleTaskCompletion(task.id)"
+    />
+    <label>
+        <h4>{{ task.title }}</h4>
+        <p>{{ task.description }}</p>
+      </label>
+      <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
+    </div>
+  }
+</div>

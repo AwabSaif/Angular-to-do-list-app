@@ -85,3 +85,7 @@ button{
 .social i{
   margin-right: 4px;
 }
+.link-btn:hover {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.27);
+}

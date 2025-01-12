@@ -1,17 +1,9 @@
-<form 
-[formGroup]="loginForm" 
-(ngSubmit)="onSubmit()"
->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <h3>Login Here</h3>
 
   <!-- Email-->
   <label for="email">Email</label>
-  <input
-    type="email"
-    formControlName="email"
-    placeholder="Email"
-    id="email"
-  />
+  <input type="email" formControlName="email" placeholder="Email" id="email" />
   @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
 
   <div>
@@ -48,8 +40,12 @@
   </button>
 
   <!-- -->
- <!--  <div class="social">
-    <div class="go"><i class="fab fa-google"></i> Google</div>
-    <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-  </div> -->
+  <div class="social">
+    <p>
+      I do not have an account
+      <strong class="link-btn" (click)="onClick()">Register</strong>
+    </p>
+    <!-- <div class="go"><i class="fab fa-google"></i> Google</div> -->
+    <!-- <div class="fb"><i class="fab fa-facebook"></i> Facebook</div> -->
+  </div>
 </form>

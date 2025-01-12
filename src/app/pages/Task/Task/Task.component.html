@@ -1,0 +1,39 @@
+<form [formGroup]="taskFrom" (ngSubmit)="onSubmit()">
+  <h3>Add Task Here</h3>
+
+  <!-- task-->
+  <label for="title">Add Task</label>
+  <input type="text" formControlName="title" placeholder="title" id="title" />
+  @if (taskFrom.get('title')?.invalid && taskFrom.get('title')?.touched) {
+
+  <div>
+    @if (taskFrom.get('title')?.errors?.['required']) {
+    <small>Task name is required.</small>
+    }
+  </div>
+  }
+  <!-- task-->
+  <label for="description">Description</label>
+  <!-- <input
+  
+  /> -->
+  <textarea
+    class="inputTask"
+    type="text"
+    formControlName="description"
+    placeholder="Description"
+    id="description"
+  ></textarea>
+
+  <!-- submit button -->
+  <button class="min-btn" type="submit" [disabled]="taskFrom.invalid">
+    Submit
+  </button>
+
+  <!-- -->
+  <!--  <div class="social">
+    <div class="go"><i class="fab fa-google"></i> Google</div>
+    <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+  </div> -->
+</form>
+<app-task-list></app-task-list>

@@ -1,3 +1,4 @@
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <h3>Sign up Here</h3>
 
@@ -52,19 +53,11 @@
   <button class="min-btn" type="submit" [disabled]="registerForm.invalid">
     Register
   </button>
-  <!-- Success Message -->
-  @if (successMessage) {
-  <div class="success-message">
-    <p>{{ successMessage }}</p>
-  </div>
-  } @if (ErrMessage) {
-  <div class="err-message">
-    <p>{{ ErrMessage }}</p>
-  </div>
-  }
-  <!-- --><!-- 
+ 
+
   <div class="social">
-    <div class="go"><i class="fab fa-google"></i> Google</div>
-    <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-  </div> -->
+    <p>I have an account <strong class="link-btn" (click)="onClick()">Login</strong></p>
+    <!-- <div class="go"><i class="fab fa-google"></i> Google</div> -->
+    <!-- <div class="fb"><i class="fab fa-facebook"></i> Facebook</div> -->
+  </div> 
 </form>
