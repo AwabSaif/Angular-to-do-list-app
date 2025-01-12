@@ -31,10 +31,16 @@ export class TaskService {
 
 
   // تغيير حالة المهمة
-  toggleTaskStatus(id: string): Observable<any> {
+  // toggleTaskStatus(id: string): Observable<any> {
+  //   const headers = this.tokenService.getAuthHeaders();  
+  //   return this.http.put(`${this.apiUrl}/toggle-status/${id}`, {}, { headers });
+  // }
+
+  toggleTaskStatus(taskId: string, data: { completed: boolean }): Observable<any> {
     const headers = this.tokenService.getAuthHeaders();  
-    return this.http.patch(`${this.apiUrl}/toggle-status/${id}`, {}, { headers });
+    return this.http.put(`${this.apiUrl}/toggle-status/${taskId}`, data, { headers });
   }
+  
   //all task
   getAllTasks(): Observable<any> {
     const headers = this.tokenService.getAuthHeaders(); 

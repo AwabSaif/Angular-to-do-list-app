@@ -54,10 +54,13 @@
     transform: scale(1.2);
     cursor: pointer;
   }
+.con-btn{
+  margin-left: auto;
 
+}
   /* Button styles */
   .delete-btn {
-    margin-left: auto;
+    margin-left: 7px; 
     padding: 10px 20px;
     background-color: #ff4d4d;
     color: #ffffff;
@@ -70,6 +73,22 @@
 
   .delete-btn:hover {
     background-color: #e60000;
+  }
+  /* edit styles */
+  .edit-btn {
+
+    padding: 10px 20px;
+    background-color: #3196ee;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .edit-btn:hover {
+    background-color: #057ee8;
   }
 
   /* Responsive adjustments */
