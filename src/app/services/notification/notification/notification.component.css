@@ -1,0 +1,25 @@
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+  }
+  
+  .notification.info {
+    background-color: #3498db;
+  }
+  
+  .notification.success {
+    background-color: #2ecc71;
+  }
+  
+  .notification.error {
+    background-color: #e74c3c;
+  }
+  

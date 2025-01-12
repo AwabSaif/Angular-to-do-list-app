@@ -1,0 +1,70 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h3>Sign up Here</h3>
+
+  <!-- Name -->
+  <label for="name">Name</label>
+  <input type="text" formControlName="name" placeholder="Full name" id="name" />
+  @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+
+  <div>
+    @if (registerForm.get('name')?.errors?.['required']) {
+    <small>Name is required.</small>
+    }
+  </div>
+  }
+
+  <!-- Email-->
+  <label for="email">Email</label>
+  <input type="email" formControlName="email" placeholder="Email " id="email" />
+  @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched)
+  {
+
+  <div>
+    @if (registerForm.get('email')?.errors?.['required']) {
+    <small>Email is required.</small>
+    } @if (registerForm.get('email')?.errors?.['email']) {
+    <small>Invalid email format..</small>
+    }
+  </div>
+  }
+
+  <!-- password -->
+  <label for="password">Password</label>
+  <input
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+    id="password"
+  />
+  @if(registerForm.get('password')?.invalid &&
+  registerForm.get('password')?.touched){
+
+  <div>
+    @if (registerForm.get('password')?.errors?.['required']) {
+    <small>Password is required.</small>
+    } @if (registerForm.get('password')?.errors?.['minlength']) {
+    <small> Password must be at least 6 characters. </small>
+    }
+  </div>
+  }
+
+  <!-- Register Button -->
+  <button class="min-btn" type="submit" [disabled]="registerForm.invalid">
+    Register
+  </button>
+  <!-- Success Message -->
+  @if (successMessage) {
+  <div class="success-message">
+    <p>{{ successMessage }}</p>
+  </div>
+  } @if (ErrMessage) {
+  <div class="err-message">
+    <p>{{ ErrMessage }}</p>
+  </div>
+  }
+  <!-- --><!-- 
+  <div class="social">
+    <div class="go"><i class="fab fa-google"></i> Google</div>
+    <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+  </div> -->
+</form>
