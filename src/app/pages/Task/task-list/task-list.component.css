@@ -50,10 +50,28 @@
   }
 
   /* Checkbox styles */
+  .completed-section {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+    gap: 10px;
+    margin-left: 35px;
+  }
+  
   .task-completed-checkbox {
-    transform: scale(1.2);
+    width: 18px;
+    height: 18px;
+    accent-color: #ffffff;
     cursor: pointer;
   }
+  
+  .completed-lab {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+  }
+ 
 .con-btn{
   margin-left: auto;
 
@@ -116,3 +134,21 @@
       padding: 10px;
     }
   }
+   
+  @media (max-width: 768px) {
+    .completed-lab {
+      font-size: 14px; 
+    }
+  }
+  
+  @media (max-width: 481px) {
+    .completed-lab {
+      font-size: 12px;
+    }
+  
+    .task-completed-checkbox {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  

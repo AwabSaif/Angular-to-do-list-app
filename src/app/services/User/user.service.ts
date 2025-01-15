@@ -23,7 +23,8 @@ export interface LoginResponse {
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:5000/api/users'; 
+  private apiUrl = 'https://to-do-list-api-7axi.onrender.com/api/users'; 
+  // private apiUrl = 'http://localhost:5000/api/users'; 
 
   constructor(
     private http: HttpClient,

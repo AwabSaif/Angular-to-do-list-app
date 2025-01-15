@@ -1,7 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TaskService } from '../../../services/Task/task.service';
 import { NotificationService } from '../../../services/notification/notification.service';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
 export interface Task {
   _id: string;
   title: string;
@@ -13,36 +18,45 @@ export interface Task {
 @Component({
   selector: 'app-task-list',
   standalone: true,
+  imports: [
+    MatBadgeModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatCardModule,
+  ],
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  @Input() tasks: Task[] = [];
-  isLoading = true;
+  tasks: Task[] = [];
 
   constructor(
     private taskService: TaskService,
+    private router: Router,
     private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
     this.fetchTasks();
+
+ 
+    this.taskService.getTasksUpdatedListener().subscribe(() => {
+      this.fetchTasks(); 
+    });
   }
 
-  // Fetch tasks from server
+
   fetchTasks(): void {
     this.taskService.getAllTasks().subscribe(
       (response: Task[]) => {
-        // this.tasks = response;
         this.tasks = response.reverse();
-        this.isLoading = false;
       },
       (error) => {
         this.notificationService.showNotification(
           'Failed to load tasks',
           'error'
         );
-        this.isLoading = false;
       }
     );
   }
@@ -51,9 +65,6 @@ export class TaskListComponent implements OnInit {
     return task._id;
   }
 
-  onTaskAdded(newTask: any): void {
-    this.tasks.unshift(newTask);
-  }
 
   // Toggle task completion
   toggleTaskCompletion(taskId: string, currentStatus: boolean): void {
@@ -83,10 +94,11 @@ export class TaskListComponent implements OnInit {
       );
     }
   }
-  // edit task
+
+  // Edit task
   editTask(taskId: string): void {
-    
-   }
+    this.router.navigate(['/tasks/', taskId]);
+  }
 
   // Delete task
   deleteTask(taskId: string): void {
@@ -100,7 +112,7 @@ export class TaskListComponent implements OnInit {
       },
       (error) => {
         this.notificationService.showNotification(
-          'Failed to delete tas',
+          'Failed to delete task',
           'error'
         );
       }

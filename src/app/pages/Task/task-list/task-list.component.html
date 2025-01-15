@@ -3,21 +3,31 @@
   @for ( task of tasks; track $index) {
 
   <div class="task_item" [class.completed]="task.completed">
-    <input
-      type="checkbox"
-      class="task-completed-checkbox"
-      [checked]="task.completed"
-      (change)="toggleTaskCompletion(task._id, task.completed)"
-    />
-
     <label>
       <h4>{{ task.title }}</h4>
       <p>{{ task.description }}</p>
     </label>
-    <div class="con-btn">
-      <button class="edit-btn" (click)="editTask(task._id)">Edit</button>
-      <button class="delete-btn" (click)="deleteTask(task._id)">Delete</button>
+    
+    <!-- completed section -->
+    <div class="completed-section">
+      <input
+        type="checkbox"
+        class="task-completed-checkbox completed-check"
+        [checked]="task.completed"
+        (change)="toggleTaskCompletion(task._id, task.completed)"
+        id="completed"
+      />
+      <label class="completed-lab" for="completed">Completed</label>
     </div>
-</div>
+
+    <div class="con-btn">
+      <button class="edit-btn" (click)="editTask(task._id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="delete-btn" (click)="deleteTask(task._id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
   }
 </div>
