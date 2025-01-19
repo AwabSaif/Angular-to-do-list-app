@@ -1,14 +1,12 @@
 <div class="list_task">
   <h3>Your Tasks</h3>
   @for ( task of tasks; track $index) {
-
   <div class="task_item" [class.completed]="task.completed">
     <label>
       <h4>{{ task.title }}</h4>
       <p>{{ task.description }}</p>
     </label>
-    
-    <!-- completed section -->
+
     <div class="completed-section">
       <input
         type="checkbox"
@@ -21,9 +19,10 @@
     </div>
 
     <div class="con-btn">
-      <button class="edit-btn" (click)="editTask(task._id)">
+      <button class="edit-btn" (click)="openEditTaskDialog(task._id)">
         <mat-icon>edit</mat-icon>
       </button>
+
       <button class="delete-btn" (click)="deleteTask(task._id)">
         <mat-icon>delete</mat-icon>
       </button>

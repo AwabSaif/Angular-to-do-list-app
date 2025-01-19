@@ -12,3 +12,21 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.valid-text  {
+    font-size: 14px;
+    color: #ff512f !important; 
+    font-weight: bold; 
+    background-color: #f8d7da; 
+    border: 1px solid #f5c6cb;
+    padding: 1px; 
+    border-radius: 4px;
+    margin-top: 15px !important; 
+  }
+  
+
+  .valid-text:hover {
+    background-color: #f1b0b7; 
+    border-color: #d9534f; 
+  }
+  

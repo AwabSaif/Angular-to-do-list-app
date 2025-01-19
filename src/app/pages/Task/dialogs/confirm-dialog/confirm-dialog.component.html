@@ -1,0 +1,17 @@
+<h2 mat-dialog-title class="dialog-title">Confirm Deletion</h2>
+<mat-dialog-content class="dialog-content">
+  Are you sure you want to delete this task? This action cannot be undone.
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCloseDialog(false)" class="cancel-btn">
+    No
+  </button>
+  <button
+    mat-button
+    (click)="onCloseDialog(true)"
+    class="confirm-btn"
+    cdkFocusInitial
+  >
+    Yes
+  </button>
+</mat-dialog-actions>

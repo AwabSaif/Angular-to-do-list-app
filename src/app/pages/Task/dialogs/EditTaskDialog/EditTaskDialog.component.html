@@ -1,0 +1,53 @@
+<form [formGroup]="editTaskFrom" (ngSubmit)="onSubmit()" class="edit-task-form">
+<h2 mat-dialog-title class="dialog-title">Edit Task</h2>
+  <!-- Task title -->
+  <label for="title">Task Title</label>
+  <input
+    type="text"
+    id="title"
+    placeholder="Enter task title"
+    formControlName="title"
+    class="form-input"
+  />
+  @if (editTaskFrom.get('title')?.invalid && editTaskFrom.get('title')?.touched)
+  {
+  <div class="error-message">
+    @if (editTaskFrom.get('title')?.errors?.['required']) {
+    <small class="valid-text"> Task title is required </small>
+    }
+  </div>
+  }
+  <!-- Description -->
+  <label for="description">Description</label>
+  <textarea
+    id="description"
+    placeholder="Enter description"
+    formControlName="description"
+    class="form-textarea"
+  ></textarea>
+  <!-- Completed checkbox -->
+  <div class="completed-section">
+    <input
+      type="checkbox"
+      id="completed"
+      formControlName="completed"
+      class="task-completed-checkbox"
+    />
+    <label for="completed" class="completed-lab">Completed</label>
+  </div>
+  
+  <!-- Actions -->
+  <mat-dialog-actions>
+    <button mat-button type="button" class="cancel-button" (click)="onClose()">
+      Cancel
+    </button>
+    <button
+      mat-button
+      type="submit"
+      [disabled]="editTaskFrom.invalid"
+      class="save-button"
+    >
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

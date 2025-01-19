@@ -1,3 +1,37 @@
-<p class="hometest">
-  home works!
-</p>
+<div class="map-con">
+  <h3>Map of Jeddah</h3>
+  <div id="map">
+    <!-- 
+    <google-map [center]="center" [zoom]="zoom" height="500px" width="100%">
+      <map-marker
+        *ngFor="let marker of markers"
+        #mapMarker="mapMarker"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"
+        (mapClick)="openInfoWindow(marker.branch, mapMarker)"
+      ></map-marker>
+      <map-info-window>
+        <div *ngIf="selectedBranch()">
+          <h3>{{ selectedBranch()?.name }}</h3>
+          <p>{{ selectedBranch()?.location }}</p>
+        </div>
+      </map-info-window>
+    </google-map>
+ -->
+
+    <!-- google-map-demo.component.html -->
+    <google-map
+      height="400px"
+      width="750px"
+      [center]="center"
+      [zoom]="zoom"
+      (mapClick)="addMarker($event)"
+    >
+      @for (position of markerPositions; track position) {
+      <map-marker [position]="position" [options]="markerOptions" />
+      }
+    </google-map>
+  </div>
+</div>

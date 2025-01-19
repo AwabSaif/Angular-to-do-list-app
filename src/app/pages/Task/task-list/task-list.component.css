@@ -1,18 +1,15 @@
 /* General styles for task list */
+/* Task list styles */
 .list_task {
-    width: 800px;
-    background-color: rgba(255, 255, 255, 0.13);
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 650px;
-    padding: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-  }
-  
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  backdrop-filter: blur(10px);
+}
+
   .list_task h3 {
     text-align: center;
     font-size: 28px;
@@ -74,13 +71,12 @@
  
 .con-btn{
   margin-left: auto;
-
 }
   /* Button styles */
   .delete-btn {
     margin-left: 7px; 
     padding: 10px 20px;
-    background-color: #ff4d4d;
+    background-color: #f44336;
     color: #ffffff;
     font-size: 14px;
     border-radius: 5px;
@@ -90,7 +86,7 @@
   }
 
   .delete-btn:hover {
-    background-color: #e60000;
+    background-color: #d32f2f;
   }
   /* edit styles */
   .edit-btn {
@@ -112,10 +108,9 @@
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .list_task {
-      width: 85%;
+      width: 100%;
       padding: 15px;
     }
-
     .task_item h4 {
       font-size: 18px;
     }
@@ -123,25 +118,18 @@
     .task_item p {
       font-size: 14px;
     }
-  }
-
-  @media (max-width: 481px) {
-    .list_task {
-      width: 90%;
-    }
-
-    .task_item {
-      padding: 10px;
-    }
-  }
-   
-  @media (max-width: 768px) {
     .completed-lab {
       font-size: 14px; 
     }
   }
-  
+
   @media (max-width: 481px) {
+    .list_task {
+      width: 100%;
+    }
+    .task_item {
+      padding: 10px;
+    }
     .completed-lab {
       font-size: 12px;
     }
@@ -151,4 +139,19 @@
       height: 16px;
     }
   }
+  @media (min-width: 481px) {
+    .list_task {
+      width: 100%;
+    }
+    .task_item {
+      padding: 10px;
+    }
+    .completed-lab {
+      font-size: 12px;
+    }
   
+    .task-completed-checkbox {
+      width: 16px;
+      height: 16px;
+    }
+  }

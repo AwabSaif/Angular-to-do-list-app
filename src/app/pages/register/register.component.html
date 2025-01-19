@@ -9,7 +9,7 @@
 
   <div>
     @if (registerForm.get('name')?.errors?.['required']) {
-    <small>Name is required.</small>
+    <small class="valid-text">Name is required</small>
     }
   </div>
   }
@@ -22,9 +22,9 @@
 
   <div>
     @if (registerForm.get('email')?.errors?.['required']) {
-    <small>Email is required.</small>
+    <small class="valid-text">Email is required</small>
     } @if (registerForm.get('email')?.errors?.['email']) {
-    <small>Invalid email format..</small>
+    <small class="valid-text">Invalid email format..</small>
     }
   </div>
   }
@@ -42,9 +42,9 @@
 
   <div>
     @if (registerForm.get('password')?.errors?.['required']) {
-    <small>Password is required.</small>
+    <small class="valid-text">Password is required</small>
     } @if (registerForm.get('password')?.errors?.['minlength']) {
-    <small> Password must be at least 6 characters. </small>
+    <small class="valid-text"> Password must be at least 6 characters </small>
     }
   </div>
   }
@@ -57,7 +57,6 @@
 
   <div class="social">
     <p>I have an account <strong class="link-btn" (click)="onClick()">Login</strong></p>
-    <!-- <div class="go"><i class="fab fa-google"></i> Google</div> -->
-    <!-- <div class="fb"><i class="fab fa-facebook"></i> Facebook</div> -->
+  
   </div> 
 </form>

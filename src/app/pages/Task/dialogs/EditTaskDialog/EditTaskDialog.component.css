@@ -1,0 +1,150 @@
+/* General Form Styling */
+
+:host {
+  display: block;
+  /* background: #ffffff26; */
+  background: #1b1a20c4;
+  border-radius: 8px;
+  padding: 16px;
+  
+}
+
+h2[mat-dialog-title] {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+label, .title {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:hover,
+textarea:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+
+.completed-section {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.task-completed-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #ffffff;
+  cursor: pointer;
+}
+
+.completed-label {
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: -50px;
+}
+
+/* Action Buttons */
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: #ffffff;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+.save-button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+/* Dialog Container Styling */
+.mat-dialog-container {
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .edit-task-form {
+    width: 100%;
+    padding: 20px;
+  }
+
+  h2[mat-dialog-title] {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  input,
+  textarea {
+    font-size: 12px;
+  }
+}

@@ -8,9 +8,9 @@
 
   <div>
     @if (loginForm.get('email')?.errors?.['required']) {
-    <small>Email is required.</small>
+    <small class="valid-text">Email is required</small>
     } @if (loginForm.get('email')?.errors?.['email']) {
-    <small>Invalid email format..</small>
+    <small class="valid-text">Invalid email format..</small>
     }
   </div>
   }
@@ -27,9 +27,9 @@
 
   <div>
     @if (loginForm.get('password')?.errors?.['required']) {
-    <small>Password is required.</small>
+    <small class="valid-text">Password is required</small>
     } @if (loginForm.get('password')?.errors?.['minlength']) {
-    <small> Password must be at least 6 characters. </small>
+    <small class="valid-text"> Password must be at least 6 characters </small>
     }
   </div>
   }
@@ -45,7 +45,5 @@
       I do not have an account
       <strong class="link-btn" (click)="onClick()">Register</strong>
     </p>
-    <!-- <div class="go"><i class="fab fa-google"></i> Google</div> -->
-    <!-- <div class="fb"><i class="fab fa-facebook"></i> Facebook</div> -->
   </div>
 </form>

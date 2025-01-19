@@ -8,10 +8,20 @@ import {
 import { UserService } from '../../services/User/user.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../services/notification/notification.service';
+import { LoaderService } from '../../services/loader/loader.service';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -22,7 +32,8 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private loaderService: LoaderService
   ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -30,11 +41,13 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
   onClick() {
     this.router.navigate(['/login']);
   }
 
   onSubmit(): void {
+    this.loaderService.showLoader();
     if (this.registerForm.valid) {
       this.userService.register(this.registerForm.value).subscribe(
         (response) => {
@@ -42,14 +55,12 @@ export class RegisterComponent {
             'Registration successful! Redirecting to login...',
             'success'
           );
+          this.loaderService.hideLoader();
           this.router.navigate(['/login']);
-        
         },
         (error) => {
-          this.notificationService.showNotification(
-            'Register failed.',
-            'error'
-          );
+          this.notificationService.showNotification('Register failed.', 'error');
+          this.loaderService.hideLoader();
         }
       );
     }

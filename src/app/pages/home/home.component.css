@@ -1,4 +1,49 @@
-.hometest {
-
-    background: #ffffff;
-}
+.map-con  {
+    height: auto;
+    width: 800px;
+    /* max-width: 90%; */
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 40px 30px;
+    overflow: hidden;
+  }
+  
+  .map-con * {
+    /* font-family: "Poppins", sans-serif; */
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+  }
+  
+  .map-con h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .map-con {
+      width: 85%;
+    }
+  
+   
+  }
+  
+  @media (max-width: 481px) {
+    .map-con {
+      width: 90%;
+      padding: 30px 20px;
+    }
+  
+  }

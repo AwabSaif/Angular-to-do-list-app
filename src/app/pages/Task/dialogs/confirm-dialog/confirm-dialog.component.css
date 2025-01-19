@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  /* background: #ffffff26; */
+  background: #1b1a20c4;
+  border-radius: 8px;
+  padding: 16px;
+  
+}
+.dialog-title {
+  font-size: 1.25rem;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.dialog-content {
+  padding: 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  border: #f44336;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.confirm-btn {
+  background-color: #4caf50;
+  border: #4caf50; 
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.confirm-btn:hover {
+  background-color: #45a049;
+}
+
+.cancel-btn:hover {
+  background-color: #d32f2f;
+}

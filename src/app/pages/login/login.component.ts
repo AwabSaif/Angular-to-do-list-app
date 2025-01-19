@@ -9,6 +9,7 @@ import { UserService } from '../../services/User/user.service';
 import { NotificationService } from '../../services/notification/notification.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
+import { LoaderService } from '../../services/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private loaderService: LoaderService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -36,6 +38,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+    this.loaderService.showLoader();
     if (this.loginForm.valid) {
       this.userService.login(this.loginForm.value).subscribe(
         (response) => {
@@ -48,6 +51,7 @@ export class LoginComponent {
             'jkanslknlakscnlisacoipjpoascjpojacs55'
           ).toString();
           localStorage.setItem('TodoList', encryptedData);
+          this.loaderService.hideLoader();
           this.router.navigate(['/tasks']);
         },
         (error) => {
@@ -55,6 +59,7 @@ export class LoginComponent {
             'Login failed, Check Email or Password',
             'error'
           );
+          this.loaderService.hideLoader();
         }
       );
     }
